@@ -6,3 +6,8 @@ h1, h2, h3, h4, h5 {
     font-size: 2.3em;
     background-image: "favicon.svg";
 }
+
+
+.navbar-brand h1{
+    color: white;
+}

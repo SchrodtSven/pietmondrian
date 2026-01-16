@@ -7,7 +7,7 @@ from dash import Dash, html, dash_table, dcc, callback, Output, Input, register_
 import plotly.express as px
 import pandas as pd
 import dash_ag_grid as dag
-from wtf.dd import DD
+from pmonlib.dd import DD
 
 register_page(__name__)
 

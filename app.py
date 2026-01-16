@@ -21,7 +21,7 @@ import dash
 load_figure_template(["sandstone", "simplex"])
 
 # project libs
-from wtf.dd import DD
+from pmonlib.dd import DD
 
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
 
@@ -31,7 +31,7 @@ app = Dash(
     external_stylesheets=[dbc.themes.FLATLY, dbc_css],
     suppress_callback_exceptions=True,
 )
-app.title = "Example App"
+app.title = "Data stuff & Piet Mondrian"
 
 navbar = dbc.NavbarSimple(
     [
@@ -46,6 +46,7 @@ navbar = dbc.NavbarSimple(
         ),
     ],
     brand=[
+       
         html.H1(app.title)
     ]
 )

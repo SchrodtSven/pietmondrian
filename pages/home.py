@@ -14,13 +14,13 @@ from dash import (
     State,
     register_page,
 )
-from wtf.dd import DD
+from pmonlib.dd import DD
 
 register_page(__name__, path="/")
 
 
 layout = html.Div(
     [
-        html.Div([html.H1("Dash app skeleton"), html.P("Foo")])
+        html.Div([html.H1("Dash app skeleton"), html.P("Foo"),  html.Img(src="assets/favicon.svg")])
     ]
 )

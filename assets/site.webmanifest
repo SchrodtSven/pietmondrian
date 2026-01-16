@@ -1,17 +1,17 @@
 {
-  "name": "Dash skeleton for apps",
-  "short_name": "DashApp",
+  "name": "pietmondrian",
+  "short_name": "pm",
   "icons": [
     {
       "src": "/assets/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "image/assets/png",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
       "src": "/assets/web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "type": "image/assets/png",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],

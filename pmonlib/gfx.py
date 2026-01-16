@@ -1,3 +1,8 @@
+# Graphical functionality
+#
+# AUTHOR Sven Schrodt
+# SINCE 2026-01-16
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import pandas as pd
@@ -30,6 +35,7 @@ class Gfx:
         ax.set_aspect('equal')
         ax.axis('off')
         fig.text(0.5, 0.01, id, ha="center", fontsize=14)
+        print(type(fig))
         plt.show()
 
 if __name__ == '__main__':
