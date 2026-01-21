@@ -8,10 +8,12 @@ import matplotlib.patches as mpatches
 import pandas as pd
 from typing import Self, Any
 
+
 class Cache:
     '''
     Local Cache for painting (meta) data
     '''
+    dbg = True
 
     # list of indices
     idc = [ 'b104', 'b105', 'b106', 'b107', 'b108', 'b109', 'b113', 'b114', 'b115', 'b116',
@@ -31,4 +33,15 @@ class Cache:
     
     @staticmethod
     def path_by_id(idx):
-        return  f'assets/img/{idx}.svg'
+        return  f'assets/static/{idx}.svg'
+    
+    @staticmethod
+    def create_cache():
+        from pmonlib.gfx import Gfx
+        gfx = Gfx()
+        for idx in Cache.idc:
+            fn = Cache.path_by_id(idx)
+            if Cache.dbg:
+                print(fn)
+            gfx.save_pic(idx)
+            #exit()

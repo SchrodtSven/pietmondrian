@@ -7,13 +7,6 @@ gfx = Gfx()
 
 
 
-
-
-print(Cache.path_by_id('b106'))
-
-
-exit()
-
 for idx in Cache.idc:
     '''
     /Users/svenschrodt/projx/pietmondrian/pmonlib/gfx.py:39: RuntimeWarning: More than 20 figures have been opened. 
@@ -23,7 +16,7 @@ for idx in Cache.idc:
     '''
     #idx = 'b288'
     idx = 'b194'
-    fn = f'assets/img/{idx}.svg'
+    fn = Cache.path_by_id(idx)
     print(fn)
     gfx.add_meta = False
     fig = gfx.get_pic(idx)
