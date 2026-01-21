@@ -15,13 +15,20 @@ class Provider:
 
     entities = ["features", "info"]
 
-    # FIXME
-
-    attrz = {"features": [], "info": []}
+    
+    attrz = {
+        "features": ["id", "shape", "x", "y", "w", "h", "col", "rgb"],
+        "info": ["id", "year", "title", "w", "h", "complexity"],
+    }
 
     def __init__(self):
+        '''
+        Initialize lists, data frames etc
+        
+        :param self
+        '''
         self.features = pd.read_csv("dta/feature.csv")
-        self.info = pd.read_csv("dta/info.csv")
+        self.info = pd.read_csv("dta/fullinfo.csv")
 
     def uniq(self, attr="id", entity="features"):
         """
@@ -40,10 +47,29 @@ class Provider:
         return df[attr].unique()
 
     def row(self, id, attr=None):
+        '''
+        Getting row from info data frame
+        
+        :param self
+        :param id: id of painting
+        :param attr: optional attribute(s) to retrieve only
+        '''
         if attr == None:
-            return self.info[self.info["id"] == id]
+            return self.info.query("id == @id")
         else:
-            return self.info[self.info["id"] == id][attr]
+            return self.info.query("id == @id")[attr]
+
+
+    
+    def info_attr_by_id(self, id, attr):
+        '''
+        Retrieving certain attribute from info entity by given id
+        
+        :param self: 
+        :param id: ID of row from entity
+        :param attr: name of attribute to get
+        '''
+        return self.info.query("id == @id")[attr].item()
 
 
 if __name__ == "__main__":

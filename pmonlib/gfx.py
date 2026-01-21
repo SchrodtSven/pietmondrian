@@ -9,25 +9,25 @@ import pandas as pd
 
 class Gfx:
     '''
-    Graphical functionalty for geometric Mondrian painting 
+    Graphical functionalty for geometric Mondrian paintings
     '''
     fgsze=(4, 4)
 
-    def __init__(self, file='dta/mondrian-painting-features.csv'):
+    def __init__(self, file='dta/feature.csv'):
         self.features = pd.read_csv(file)
 
     def show_pic(self, id):
 
 
-        rects = self.features.query('painting_id == @id')
-        total_width = rects.eval("x + width").max()
-        total_height = rects.eval("y + height").max()
+        rects = self.features.query('id == @id')
+        total_width = rects.eval("x + w").max()
+        total_height = rects.eval("y + h").max()
         
         fig, ax = plt.subplots(figsize=self.fgsze)
         #fig, ax = plt.subplots(figsize=(3, 3))
         
         for (idx, row) in rects.iterrows():
-            x, y, w, h, rgb = row[['x','y','width','height','rgb']]
+            x, y, w, h, rgb = row[['x','y','w','h','rgb']]
             patch = mpatches.Rectangle((x, y), w, h, facecolor=rgb)
             ax.add_patch(patch)
         
