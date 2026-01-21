@@ -22,11 +22,12 @@ for idx in Cache.idc:
     (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
     '''
     #idx = 'b288'
+    idx = 'b194'
     fn = f'assets/img/{idx}.svg'
     print(fn)
-    
+    gfx.add_meta = False
     fig = gfx.get_pic(idx)
     fig.patch.set_linewidth(10)
     fig.patch.set_edgecolor('k')
     fig.savefig(fname=fn, format='svg')
-    #
+    exit()

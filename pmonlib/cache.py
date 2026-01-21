@@ -1,4 +1,4 @@
-# Data provider for Caching Mondrian's paintings' (meta) data & static files
+# Caching Mondrian's paintings' (meta) data & static files
 #
 # AUTHOR Sven Schrodt
 # SINCE 2026-01-21

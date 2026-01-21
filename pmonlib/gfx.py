@@ -13,6 +13,11 @@ class Gfx:
     Graphical functionalty for geometric Mondrian paintings
     '''
     fgsze=(3, 3)
+    ftsize = 12
+
+    add_meta = True
+
+    diable_axes = True
 
     def __init__(self, file='dta/feature.csv'):
         '''
@@ -26,7 +31,7 @@ class Gfx:
 
     def get_pic(self, id):
         '''
-        Docstring für get_pic
+        Drawing painting with current configuration
         
         :param self: Beschreibung
         :param id: Beschreibung
@@ -37,10 +42,6 @@ class Gfx:
         total_height = rects.eval("y + h").max()
         
         fig, ax = plt.subplots(figsize=self.fgsze)
-        #fig, ax = plt.subplots(figsize=(6,6))
-        
-        #print([fig, ax, type(fig), type(ax)])
-        #exit()
 
         for (idx, row) in rects.iterrows():
             x, y, w, h, rgb = row[['x','y','w','h','rgb']]
@@ -49,15 +50,24 @@ class Gfx:
         
         ax.axis([0, total_width, 0, total_height])
         ax.set_aspect('equal')
-        ax.axis('off')
-        title = self.provider.info_attr_by_id(id, 'title')
-        fig.text(0.05, 0.05, f'» {title} « ({id})', ha="left", fontsize=12)
-        #fig.text(0.5, 0.01, f'By Piet Mondrian', ha="center", fontsize=12)
+        if self.diable_axes:
+            ax.axis('off')
+        
+        
+        if self.add_meta:
+            title = self.provider.info_attr_by_id(id, 'title')
+            fig.text(0.05, 0.05, f'» {title} « ({id})', ha="left", fontsize=self.ftsize)
+
         return fig
 
 
     def show_pic(self, id):
-        #print(type(fig))
+        '''
+        Show painting
+        
+        :param self: 
+        :param id: ID of painting
+        '''
         fig = self.get_pic(id)
         plt.show()
 
