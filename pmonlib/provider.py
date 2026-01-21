@@ -6,7 +6,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import pandas as pd
-
+from typing import Self, Any
 
 class Provider:
     """
@@ -18,7 +18,7 @@ class Provider:
     
     attrz = {
         "features": ["id", "shape", "x", "y", "w", "h", "col", "rgb"],
-        "info": ["id", "year", "title", "w", "h", "complexity"],
+        "info": ["id", "year", "title", "w", "h", "complexity", "title_len", "area"],
     }
 
     def __init__(self):
