@@ -8,20 +8,20 @@ import matplotlib.patches as mpatches
 import pandas as pd
 from pmonlib.provider import Provider
 from pmonlib.cache import Cache
-
+from typing import Self, List, Any, Tuple
 
 class Gfx:
     """
     Graphical functionalty for geometric Mondrian paintings
     """
 
-    fgsze = (3, 3)
-    ftsize = 12
-    frame_width = 10
-    frame_color = "k"
-    format = "svg"
-    add_meta = True
-    diable_axes = True
+    fgsze: Tuple = (3, 3)
+    ftsize: int = 12
+    frame_width: int = 10
+    frame_color: str = "k"
+    format: str = "svg"
+    add_meta: bool = True
+    diable_axes: bool = True
 
     # FIXME
     _cfg = {
